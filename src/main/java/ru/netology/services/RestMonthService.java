@@ -13,5 +13,6 @@ public class RestMonthService {
                 money += income - expenses;
             }
         }
-        return rest;}
+        return rest;
+    }
 }
