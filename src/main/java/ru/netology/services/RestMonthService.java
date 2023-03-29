@@ -1,18 +1,17 @@
 package ru.netology.services;
 
 public class RestMonthService {
-    int calcRestMonth(int income, int expenses) {
+    int calcRestMonth(int income, int expenses, int threshold) {
         int rest = 0;
-        int threshold = 0;
+        int money = 0;
         for (int month = 0; month < 12; month++) {
-            if (threshold < 20_000) {
-                threshold = threshold + income - expenses;
-            } else {
+            if (money >= threshold) {
+                money -= expenses;
+                money /= 3;
                 rest++;
-                threshold = threshold - expenses;
-                threshold = threshold / 3;
+            } else {
+                money += income - expenses;
             }
-
         }
         return rest;}
 }
